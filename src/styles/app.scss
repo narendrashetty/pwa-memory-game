@@ -1,7 +1,19 @@
 @import '_reset';
 
 html, body {
-  background: #38485f;
+  font-size: 14px;
+  font-family: Helvetica, Arial, 'Sans serif';
+  color: #555;
+  background: #283344;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 25px;
+  box-sizing: border-box;
 }
 
 
@@ -11,8 +23,13 @@ html, body {
 }
 
 .memory-game-cell {
-  width: 20%;
-  height: 20%;
+  width: 25%;
+  height: 25%;
+  border: 3px solid #283344;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  background: #38485f;
 
   &:after {
     content: '';
