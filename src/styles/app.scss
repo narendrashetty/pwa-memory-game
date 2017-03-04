@@ -1,0 +1,24 @@
+@import '_reset';
+
+html, body {
+  background: #38485f;
+}
+
+
+.memory-game-table {
+  width: 100%;
+  height: auto;
+}
+
+.memory-game-cell {
+  width: 20%;
+  height: 20%;
+
+  &:after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+    width: 1px;
+    float: left;
+  }
+}
