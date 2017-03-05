@@ -7,6 +7,7 @@ const Game = function () {
   this.rows = 6;
   this.cols = 4;
   this.guess = null;
+  this.paused = false;
 };
 
 Game.prototype.init = function (cards) {
@@ -39,7 +40,7 @@ Game.prototype.cardClicked = function (e) {
     let $inside = $target.parentElement;
     let $card = $inside.parentElement;
 
-    if (!$inside.classList.contains('matched') && !$inside.classList.contains('picked')) {
+    if (!this.paused && !$inside.classList.contains('matched') && !$inside.classList.contains('picked')) {
       $inside.classList.add('picked');
       if (!this.guess) {
         this.guess = $card;
@@ -52,10 +53,12 @@ Game.prototype.cardClicked = function (e) {
         $inside.classList.remove('picked');
         this.guess = null;
       } else {
+        this.paused = true;
         setTimeout(() => {
           this.guess.querySelector('.picked').classList.remove('picked');
           $inside.classList.remove('picked');
           this.guess = null;
+          this.paused = false;
         }, 600);
       }
 
