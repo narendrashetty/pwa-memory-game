@@ -23,7 +23,7 @@ Game.prototype.buildTable = function() {
   for (let i = 0; i < this.rows; i++) {
     table[i] = [];
     for (let j = 0; j < this.cols; j++) {
-      table[i][j] = Card(this.cards[(i * this.cols) + j]);
+      table[i][j] = Card(this.cards[(i * this.cols) + j], i, j);
     }
   }
   return table;
@@ -34,36 +34,30 @@ Game.prototype.addListeners = function () {
 };
 
 Game.prototype.cardClicked = function (e) {
-  let $target = e.target;
+  const cell = e.target.parentElement.parentElement.parentElement;
+  const row = cell.parentElement;
 
-  if ($target.classList.contains('back')) {
-    let $inside = $target.parentElement;
-    let $card = $inside.parentElement;
+  const card = this.table[row.rowIndex][cell.cellIndex];
 
-    if (!this.paused && !$inside.classList.contains('matched') && !$inside.classList.contains('picked')) {
-      $inside.classList.add('picked');
-      if (!this.guess) {
-        this.guess = $card;
-        return;
-      } else if ($card.dataset.id === this.guess.dataset.id) {
-        this.guess.querySelector('.picked').classList.add('matched');
-        this.guess.querySelector('.picked').classList.remove('picked');
-
-        $inside.classList.add('matched');
-        $inside.classList.remove('picked');
+  if (!this.paused && !card.isMatch() && !card.isPick()) {
+    card.setPick();
+    if (!this.guess) {
+      this.guess = card;
+    } else if (card.is(this.guess)) {
+      this.guess.setMatch();
+      card.setMatch();
+      this.guess = null;
+    } else {
+      this.paused = true;
+      setTimeout(() => {
+        this.guess.reset();
+        card.reset();
         this.guess = null;
-      } else {
-        this.paused = true;
-        setTimeout(() => {
-          this.guess.querySelector('.picked').classList.remove('picked');
-          $inside.classList.remove('picked');
-          this.guess = null;
-          this.paused = false;
-        }, 600);
-      }
-
+        this.paused = false;
+      }, 600);
     }
   }
+
 };
 
 Game.prototype.renderTable = function () {
