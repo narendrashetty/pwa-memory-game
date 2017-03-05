@@ -1,4 +1,5 @@
 const Card = require('./card');
+const Timer = require('./Timer');
 
 
 const Game = function () {
@@ -13,9 +14,9 @@ const Game = function () {
 Game.prototype.init = function (cards) {
   this.cards = this.shuffleCardsArray(cards.concat(cards));
   this.table = this.buildTable();
-  const dom = this.renderTable();
-  this.$table.innerHTML = dom;
+  this.renderTable();
   this.addListeners();
+  Timer.start();
 };
 
 Game.prototype.buildTable = function() {
@@ -57,7 +58,6 @@ Game.prototype.cardClicked = function (e) {
       }, 600);
     }
   }
-
 };
 
 Game.prototype.renderTable = function () {
@@ -72,8 +72,7 @@ Game.prototype.renderTable = function () {
     }
     dom += '</tr>';
   }
-
-  return dom;
+  this.$table.innerHTML = dom;
 };
 
 Game.prototype.shuffleCardsArray = function (cards) {

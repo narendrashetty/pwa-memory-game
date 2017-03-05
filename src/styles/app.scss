@@ -16,10 +16,19 @@ html, body {
   box-sizing: border-box;
 }
 
+.header {
+  height: 50px;
+  background: #121c2b;
+  line-height: 50px;
+  font-size: 30px;
+  text-align: center;
+}
+
 
 .memory-game-table {
   width: 100%;
   height: auto;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .memory-game-cell {
@@ -51,7 +60,7 @@ html, body {
   position: relative;
   cursor: pointer;
   z-index: 50; 
-  -webkit-tap-highlight-color: rgba(0,0,0,0);  
+  -webkit-tap-highlight-color: transparent;
   // @include width(800px){
   //   width: 25%;
   //   height: 16.666%;

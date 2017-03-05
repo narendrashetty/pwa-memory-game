@@ -6,10 +6,6 @@ const Card = function(value, row, col) {
   this.col = col;
 };
 
-Card.prototype.clicked = function() {
-  
-};
-
 Card.prototype.isMatch = function() {
   return this.match;
 };
