@@ -34,6 +34,10 @@ Timer.prototype.getSec = function() {
   return (this.sec < 10) ? '0' + this.sec : this.sec;
 };
 
+Timer.prototype.getTime = function() {
+  return this.getMin() + ' : ' + this.getSec();
+};
+
 Timer.prototype.render = function() {
   this.$time.innerHTML = this.getMin() + ' : ' + this.getSec();
 };

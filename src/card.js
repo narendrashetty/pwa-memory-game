@@ -12,6 +12,7 @@ Card.prototype.isMatch = function() {
 
 Card.prototype.setMatch = function() {
   this.match = true;
+  this.pick = false;
   this.update();
 };
 

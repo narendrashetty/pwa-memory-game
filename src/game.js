@@ -60,7 +60,23 @@ Game.prototype.cardClicked = function (e) {
         this.paused = false;
       }, 600);
     }
+
+    if (this.win()) {
+      this.stop();
+    }
+
   }
+};
+
+Game.prototype.win = function() {
+  if (document.querySelectorAll('.matched').length === 24) {
+    Timer.stop();
+    this.showWinModal();
+  }
+};
+
+Game.prototype.showWinModal = function() {
+  alert('you Won!! Completed in ' + Timer.getTime());
 };
 
 Game.prototype.renderTable = function () {
