@@ -16,6 +16,9 @@ Game.prototype.init = function (cards) {
   this.table = this.buildTable();
   this.renderTable();
   this.addListeners();
+};
+
+Game.prototype.start = function() {
   Timer.start();
 };
 
