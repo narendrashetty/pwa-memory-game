@@ -57,8 +57,6 @@ module.exports = {
 
     new webpack.optimize.OccurrenceOrderPlugin(),
 
-    new webpack.optimize.DedupePlugin(),
-
     new ExtractTextPlugin('static/css/[name].[hash].css'),
 
     new webpack.optimize.UglifyJsPlugin({
