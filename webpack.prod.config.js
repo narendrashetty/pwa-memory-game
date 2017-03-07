@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 
 module.exports = {
   'devtool': 'source-map',
@@ -24,10 +25,13 @@ module.exports = {
       'loader': 'file?name=static/fonts/[name].[ext]'
     }, {
       'test': /\.(jpg|png|ico)$/,
-      'loader': 'file?name=static/images/[name].[ext]'
+      'loader': 'file-loader?name=images/[name].[ext]'
     }, {
       'test': /(\.scss)$/,
       'loader': ExtractTextPlugin.extract({ 'fallback': 'style-loader', 'use': 'css-loader!postcss-loader!sass-loader?modules'})
+    }, {
+      'test': /manifest.json$/,
+      'loader': 'file-loader?name=manifest.json'
     }]
   },
   'resolve': {
@@ -81,6 +85,10 @@ module.exports = {
 
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer'
+    }),
+
+    new ServiceWorkerWebpackPlugin({
+      entry: path.join(__dirname, './src/sw.js')
     }),
 
     new webpack.LoaderOptionsPlugin({
