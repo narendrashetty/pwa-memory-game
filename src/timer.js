@@ -6,7 +6,7 @@ const Timer = function() {
 };
 
 Timer.prototype.start = function() {
-  if (this.interval) this.stop();
+  if (this.min > 0 || this.sec > 0) this.stop();
   this.interval = setInterval(() => {
     this.sec++;
     if (this.sec === 60) {
@@ -19,6 +19,9 @@ Timer.prototype.start = function() {
 
 Timer.prototype.stop = function() {
   this.pause();
+  this.min = 0;
+  this.sec = 0;
+  this.render();
 };
 
 Timer.prototype.pause = function() {

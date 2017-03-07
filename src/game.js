@@ -1,6 +1,7 @@
 const Card = require('./card');
 const Timer = require('./Timer');
 
+let CARDS = [];
 
 const Game = function () {
   this.$table = document.querySelector('.memory-game-table');
@@ -12,13 +13,14 @@ const Game = function () {
 };
 
 Game.prototype.init = function (cards) {
-  this.cards = this.shuffleCardsArray(cards.concat(cards));
-  this.table = this.buildTable();
-  this.renderTable();
+  CARDS = cards;
   this.addListeners();
 };
 
 Game.prototype.start = function() {
+  this.cards = this.shuffleCardsArray(CARDS.concat(CARDS));
+  this.table = this.buildTable();
+  this.renderTable();
   Timer.start();
 };
 
@@ -70,13 +72,27 @@ Game.prototype.cardClicked = function (e) {
 
 Game.prototype.win = function() {
   if (document.querySelectorAll('.matched').length === 24) {
-    Timer.stop();
-    this.showWinModal();
+    Timer.pause();
+    setTimeout(() => {
+      this.showWinModal();
+    }, 600);
   }
 };
 
 Game.prototype.showWinModal = function() {
-  alert('you Won!! Completed in ' + Timer.getTime());
+  const $modal = document.querySelector('.modalWrapper');
+  const $score = document.createElement('p');
+
+
+  $modal.querySelector('.modal__header').innerHTML = 'Cogragualtions!!';
+  $score.innerHTML = 'You have completed in ' + Timer.getMin() + ' : ' + Timer.getSec();
+
+  $modal.querySelector('.modal__body').innerHTML = '';
+  $modal.querySelector('.modal__body').appendChild($score);
+
+  $modal.querySelector('.startGame').innerHTML = 'Restart';
+
+  $modal.classList.remove('hide');
 };
 
 Game.prototype.renderTable = function () {
