@@ -43,14 +43,6 @@ html, body {
   text-align: center;
   vertical-align: middle;
   font-size: 30px;
-
-  // &:after {
-  //   content: '';
-  //   display: block;
-  //   padding-top: 100%;
-  //   width: 1px;
-  //   float: left;
-  // }
 }
 
 
@@ -61,21 +53,15 @@ html, body {
   text-align: center;
   display: block;
   perspective: 500px;
-  -moz-perspective: 500px;
   position: relative;
   cursor: pointer;
   z-index: 50; 
   -webkit-tap-highlight-color: transparent;
-  // @include width(800px){
-  //   width: 25%;
-  //   height: 16.666%;
-  // }
   .inside {
     width: 100%;
     height: 100%;
     display: block;
     transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
     transition: .4s ease-in-out;
     background: #38485f;
 

@@ -1,5 +1,6 @@
 const Card = require('./card');
-const Timer = require('./Timer');
+const Timer = require('./timer');
+const Analytics = require('./analytics');
 
 let CARDS = [];
 
@@ -15,13 +16,18 @@ const Game = function () {
 Game.prototype.init = function (cards) {
   CARDS = cards;
   this.addListeners();
+  Analytics.pageview('indexPage');
 };
 
-Game.prototype.start = function() {
+Game.prototype.start = function(mode) {
   this.cards = this.shuffleCardsArray(CARDS.concat(CARDS));
   this.table = this.buildTable();
   this.renderTable();
   Timer.start();
+  Analytics.pageview('gamePage');
+  if (mode === 'Restart') {
+    Analytics.sendEvent('restarted');
+  }
 };
 
 Game.prototype.buildTable = function() {
@@ -80,6 +86,7 @@ Game.prototype.win = function() {
 };
 
 Game.prototype.showWinModal = function() {
+  Analytics.pageview('completePage');
   const $modal = document.querySelector('.modalWrapper');
   const $score = document.createElement('p');
 

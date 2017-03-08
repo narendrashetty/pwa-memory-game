@@ -79,9 +79,6 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new webpack.optimize.AggressiveMergingPlugin(),
-    new CompressionPlugin({
-      test: /\.js$|\.css$|\.html$/
-    }),
 
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer'

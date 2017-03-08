@@ -16,7 +16,7 @@ const $modal = document.querySelector('.modalWrapper');
 
 $startBtn.addEventListener('click', function() {
   $modal.classList.add('hide');
-  Game.start();
+  Game.start(this.innerText);
 });
 
 if('serviceWorker' in navigator) {

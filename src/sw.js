@@ -1,4 +1,4 @@
-const VERSION = 'v4';
+const VERSION = 'v6';
 
 const {
   assets,
