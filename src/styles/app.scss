@@ -109,14 +109,10 @@ html, body {
   }
   .front {
     transform: rotateY(-180deg);
-    // @include width(800px){
-    //   padding: 5px;
-    // }
   }
   .back{
-    // @include width(800px){
-    //   padding: 10px;
-    // }
+    // for firefox
+    transform: rotateY(0deg);
   }
 }
 
