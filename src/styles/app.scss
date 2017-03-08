@@ -61,6 +61,7 @@ html, body {
   text-align: center;
   display: block;
   perspective: 500px;
+  -moz-perspective: 500px;
   position: relative;
   cursor: pointer;
   z-index: 50; 
@@ -74,6 +75,7 @@ html, body {
     height: 100%;
     display: block;
     transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
     transition: .4s ease-in-out;
     background: #38485f;
 
