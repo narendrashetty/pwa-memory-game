@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "./node_modules/.bin/webpack-dev-server --config=webpack.dev.config.js",
     "start": "env NODE_ENV=production ./node_modules/.bin/webpack --config=webpack.prod.config.js",
-    "deploy": "surge -p ./public -d pwa-memory-game.surge.sh"
+    "deploy": "surge -p ./public -d https://pwa-memory-game.surge.sh"
   },
   "author": "",
   "license": "MIT",
