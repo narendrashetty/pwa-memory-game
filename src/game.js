@@ -46,7 +46,7 @@ Game.prototype.addListeners = function () {
 };
 
 Game.prototype.cardClicked = function (e) {
-  const cell = e.target.parentElement.parentElement.parentElement;
+  const cell = e.target.parentElement.parentElement.parentElement.parentElement;
   const row = cell.parentElement;
 
   const card = this.table[row.rowIndex][cell.cellIndex];
