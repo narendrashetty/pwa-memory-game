@@ -43,10 +43,10 @@ Card.prototype.render = function() {
   let card = '<div class="card" data-row=' + this.row + ' data-col=' + this.col + ' data-id=' + this.value.id + '>';
   card += '<div class="inside">';
   card += '<div class="front">';
-  card += this.value.id;
+  card += '<div>' + this.value.id +'</div>';
   card += '</div>';
   card += '<div class="back">';
-  card += 'M';
+  card += '<div>M</div>';
   card += '</div>';
   card += '</div>';
   card += '</div>';
