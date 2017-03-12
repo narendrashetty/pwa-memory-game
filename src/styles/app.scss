@@ -71,6 +71,10 @@ html, body {
     &.matched {
       background: #0d1017;
     }
+
+    &.picked {
+      background: #4a6286;
+    }
   }
 
   .front, .back {

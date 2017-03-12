@@ -4,6 +4,11 @@ const Analytics = require('./analytics');
 
 let CARDS = [];
 
+function findAncestor(el, cls) {
+    while ((el = el.parentElement) && !el.classList.contains(cls));
+    return el;
+}
+
 const Game = function () {
   this.$table = document.querySelector('.memory-game-table');
   this.table = [];
@@ -46,7 +51,10 @@ Game.prototype.addListeners = function () {
 };
 
 Game.prototype.cardClicked = function (e) {
-  const cell = e.target.parentElement.parentElement.parentElement.parentElement;
+  const cell = findAncestor(e.target, 'memory-game-cell');
+
+  if (!cell) return;
+  
   const row = cell.parentElement;
 
   const card = this.table[row.rowIndex][cell.cellIndex];
