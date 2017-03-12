@@ -18,6 +18,8 @@ html, body {
   margin: 0;
   padding: 25px;
   box-sizing: border-box;
+  width: 375px;
+  margin: 0 auto;
 }
 
 .header {
@@ -36,13 +38,21 @@ html, body {
 }
 
 .memory-game-cell {
-  width: 20vw;
-  height: 20vw;
+  width: 20%;
+  height: 20%;
   
   color: #fff;
   text-align: center;
   vertical-align: middle;
   font-size: 30px;
+
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+    width: 1px;
+    float: left;
+  }
 }
 
 
