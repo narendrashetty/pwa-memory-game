@@ -35,31 +35,24 @@ html, body {
   width: 100%;
   height: auto;
   -webkit-tap-highlight-color: transparent;
+  border-collapse: separate;
+  border-spacing: 1px;
 }
 
 .memory-game-cell {
-  width: 20%;
-  height: 20%;
+  width: 80px;
+  height: 80px;
   
   color: #fff;
   text-align: center;
   vertical-align: middle;
   font-size: 30px;
-
-  &:before {
-    content: '';
-    display: block;
-    padding-top: 100%;
-    width: 1px;
-    float: left;
-  }
 }
 
 
 .card {
   width: 100%;
   height: 100%;
-  // padding: 5px;
   text-align: center;
   display: block;
   perspective: 500px;
@@ -88,7 +81,7 @@ html, body {
   }
 
   .front, .back {
-    border: 3px solid #283344;
+    // border: 3px solid #283344;
     backface-visibility: hidden;
     position: absolute;
     top: 0;
@@ -168,6 +161,19 @@ html, body {
   font-size: 18px;
   &:focus {
     outline: none;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .memory-game-cell {
+    width: 20vw;
+    height: 20vw;
   }
 }
 
