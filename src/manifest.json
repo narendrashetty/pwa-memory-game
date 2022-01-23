@@ -2,6 +2,7 @@
   "name": "Memory Game",
   "short_name": "Memory Game",
   "description": "Play this game and strengthen your memory!",
+  "categories": ["games"],
   "start_url": "index.html",
   "theme_color": "#283344",
   "background_color": "#283344",
