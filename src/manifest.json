@@ -2,6 +2,7 @@
   "name": "Memory Game",
   "short_name": "Memory Game",
   "description": "Play this game and strengthen your memory!",
+  "categories": ["games"],
   "start_url": "index.html",
   "theme_color": "#283344",
   "background_color": "#283344",
@@ -30,5 +31,17 @@
     "src": "./images/192.png",
     "sizes": "192x192",
     "type": "image/png"
+  }, {
+    "src": "./images/192-maskable.png",
+    "sizes": "192x192",
+    "type": "image/png",
+    "purpose": "maskable"
+  }],
+  "screenshots": [{
+    "src": "./images/screenshot.png",
+    "sizes": "1080x1920",
+    "type": "image/png",
+    "platform": "narrow",
+    "label": "A board with a grid of squares some of which have been flipped over to reveal matching numbers."
   }]
 }
